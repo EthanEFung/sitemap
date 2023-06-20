@@ -1,0 +1,4 @@
+github.com/ethanefung/linkparser v0.1.0 h1:fcTGcBXmUisK7KO8MVp+UGq++E3cryu3niuxNrXyIlM=
+github.com/ethanefung/linkparser v0.1.0/go.mod h1:qZtRMtbOCAlRMwp4uOfR5BO/wFQ4tXp8usCJpijd50Y=
+golang.org/x/net v0.11.0 h1:Gi2tvZIJyBtO9SDr1q9h5hEQCp/4L2RQ+ar0qjx2oNU=
+golang.org/x/net v0.11.0/go.mod h1:2L/ixqYpgIVXmeoSA/4Lu7BzTG4KIyPIryS4IsOd1oQ=
