@@ -31,13 +31,11 @@ type SiteMap struct {
 	URLSet UrlSet `xml:"urlset"`
 }
 
-func init() {
+func main() {
 	flag.StringVar(&baseUrl, "url", "", "the domain to generate a sitemap for")
 
 	flag.Parse() // don't forget to parse!
-}
 
-func main() {
 	hostURL, err := url.Parse(baseUrl)
 	if err != nil {
 		panic(errors.New("Invalid url"))
@@ -111,12 +109,12 @@ type queue interface {
 
 func newQueue() queue {
 	return &pathQueue{
-		seen: make(map[string]bool),
+		seen: NewTrie(),
 	}
 }
 
 type pathQueue struct {
-	seen map[string]bool
+	seen Trie
 	head *node
 	tail *node
 }
@@ -126,11 +124,11 @@ func (q *pathQueue) empty() bool {
 }
 
 func (q *pathQueue) queued(path string) bool {
-	return q.seen[path]
+	return q.seen.Search(path)
 }
 
 func (q *pathQueue) enqueue(path string) error {
-	q.seen[path] = true
+	q.seen.Insert(path)
 	n := &node{
 		val: path,
 	}
